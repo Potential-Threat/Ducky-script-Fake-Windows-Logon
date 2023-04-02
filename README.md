@@ -4,7 +4,6 @@ This repository contains a Ducky Script that displays a fake Windows login scree
 
 Prerequisites
 A Rubber Ducky USB device (https://shop.hak5.org/products/usb-rubber-ducky-deluxe)
-The DuckEncoder (https://github.com/hak5darren/USB-Rubber-Ducky/wiki/Downloads) to compile the Ducky Script
 Setup
 Clone this repository:
 
@@ -20,15 +19,7 @@ Copy code
 $DropBoxAccessToken = '<YOUR_DROPBOX_ACCESS_TOKEN>'
 Save the changes to the script.txt file.
 
-Compile the Ducky Script using the DuckEncoder:
-
-css
-Copy code
-java -jar duckencoder.jar -i script.txt -o inject.bin
-Copy the inject.bin file to the root directory of the Rubber Ducky USB device.
-
 Usage
-Safely eject the Rubber Ducky USB device from your computer.
 
 Insert the Rubber Ducky USB device into the target computer.
 
