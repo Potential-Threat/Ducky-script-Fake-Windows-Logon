@@ -42,7 +42,7 @@ STRING [string]$SourceFilePath
 ENTER
 STRING )
 ENTER
-STRING $DropBoxAccessToken = 'sl.Bby0IZwvrs0AubsCHh0m-6KAnxKNAxrNy8OSVIp58O0rznkhIvv6zS46ATMmV78NJTlK6rxdqaw9ntucLPymVJPq3TFooaKG4ev2K4En4_JWlOdY-8X0OrpOQr8hgTi5WNiNYoQg'
+STRING $DropBoxAccessToken = 'YOUR_ACCESS_TOKEN_HERE'
 ENTER
 STRING $outputFile = Split-Path $SourceFilePath -leaf
 ENTER
