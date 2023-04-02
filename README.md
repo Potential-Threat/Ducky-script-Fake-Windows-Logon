@@ -7,16 +7,12 @@ A Rubber Ducky USB device (https://shop.hak5.org/products/usb-rubber-ducky-delux
 Setup
 Clone this repository:
 
-bash
-Copy code
-git clone https://github.com/yourusername/fake-windows-login-ducky.git
 Open the script.txt file in a text editor.
 
 Replace the <YOUR_DROPBOX_ACCESS_TOKEN> placeholder with your own Dropbox access token.
 
-bash
-Copy code
 $DropBoxAccessToken = '<YOUR_DROPBOX_ACCESS_TOKEN>'
+
 Save the changes to the script.txt file.
 
 Usage
