@@ -29,8 +29,8 @@ This repository contains a Ducky Script that displays a fake Windows login scree
 - When the user enters their password and clicks "Submit", the script captures the password and uploads it to the specified Dropbox account.
 
 ## Acknowledgments
-Thanks to Arris Huijgen (@bitsadmin - https://github.com/bitsadmin/) for FakeLogonScreen (https://github.com/bitsadmin/fakelogonscreen)
-Thanks to I-Am-Jakoby (https://github.com/I-Am-Jakoby)
+Arris Huijgen (@bitsadmin - https://github.com/bitsadmin/) for FakeLogonScreen (https://github.com/bitsadmin/fakelogonscreen)
+I-Am-Jakoby (https://github.com/I-Am-Jakoby)
 
 ## Disclaimer
 This script is for educational purposes only. Do not use it for any malicious activities or without the explicit consent of the computer's owner. The author and contributors are not responsible for any illegal actions performed with the help of this script.
