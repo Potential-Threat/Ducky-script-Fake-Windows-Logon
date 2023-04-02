@@ -4,6 +4,11 @@ This repository contains a Ducky Script that displays a fake Windows login scree
 ## Demo
 ![Untitled video - Made with Clipchamp](https://user-images.githubusercontent.com/50125131/229378296-4ad8efad-9473-4a3d-b38f-b6e0664f0e87.gif)
 
+##Features
+- Disables Microsoft Real Time Protection, so No running into those problems...
+- If custom background is configured by the user, shows that background instead of the default one.
+- Validates entered password before closing the screen.
+
 ## Prerequisites
 - A Rubber Ducky USB device (https://shop.hak5.org/products/usb-rubber-ducky-deluxe) or Flipper zero - That's what I used - (https://shop.flipperzero.one/)
 
