@@ -5,9 +5,7 @@ This repository contains a Ducky Script that displays a fake Windows login scree
 ![Untitled video - Made with Clipchamp](https://user-images.githubusercontent.com/50125131/229378296-4ad8efad-9473-4a3d-b38f-b6e0664f0e87.gif)
 
 Prerequisites
-A Rubber Ducky USB device (https://shop.hak5.org/products/usb-rubber-ducky-deluxe)
-Setup
-Clone this repository:
+A Rubber Ducky USB device (https://shop.hak5.org/products/usb-rubber-ducky-deluxe) or Flipper zero - That's what I used - (https://shop.flipperzero.one/)
 
 Open the script.txt file in a text editor.
 
