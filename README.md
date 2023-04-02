@@ -11,7 +11,7 @@ Open the script.txt file in a text editor.
 
 Replace the <YOUR_DROPBOX_ACCESS_TOKEN> placeholder with your own Dropbox access token.
 
-$DropBoxAccessToken = '<YOUR_DROPBOX_ACCESS_TOKEN>'
+`STRING $DropBoxAccessToken = 'YOUR_ACCESS_TOKEN_HERE'`
 
 Save the changes to the script.txt file.
 
