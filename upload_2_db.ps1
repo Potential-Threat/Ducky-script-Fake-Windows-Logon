@@ -24,7 +24,10 @@ try {
     return $true
 }
 catch {
-    Write-Host "Error message: $($_.Exception.Response.StatusCode) - $($_.Exception.Message)"
+    $errorMessage = $_.Exception.Response.GetResponseStream()
+    $reader = New-Object System.IO.StreamReader($errorMessage)
+    $responseBody = $reader.ReadToEnd()
+    Write-Host "Error message: $($_.Exception.Response.StatusCode) - $responseBody"
     return $false
 }
 }
