@@ -12,7 +12,7 @@ WINDOWS r
 DELAY 300
 STRING powershell Start-Process powershell -Verb runAs
 ENTER
-DELAY 1600
+DELAY 1750
 ALT y
 DELAY 800
 
