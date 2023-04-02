@@ -24,6 +24,7 @@ try {
     return $true
 }
 catch {
+    Write-Host "Error message: $($_.Exception.Response.StatusCode) - $($_.Exception.Message)"
     return $false
 }
 }
