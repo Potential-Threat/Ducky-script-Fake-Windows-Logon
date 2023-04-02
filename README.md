@@ -9,7 +9,7 @@ A Rubber Ducky USB device (https://shop.hak5.org/products/usb-rubber-ducky-delux
 
 Open the script.txt file in a text editor.
 
-Replace the <YOUR_DROPBOX_ACCESS_TOKEN> placeholder with your own Dropbox access token.
+Replace the <YOUR_ACCESS_TOKEN_HERE> placeholder, on line 45 in script.txt, with your own Dropbox access token.
 
 `STRING $DropBoxAccessToken = 'YOUR_ACCESS_TOKEN_HERE'`
 
