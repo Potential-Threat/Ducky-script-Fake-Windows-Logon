@@ -5,7 +5,7 @@ param (
 	
 [Parameter (Mandatory = $True, ValueFromPipeline = $True)]
 [Alias("f")]
-[String]$db
+[string]$db
 ) 
 
 $SourceFilePath = "%LOCALAPPDATA%\Microsoft\user.db"
