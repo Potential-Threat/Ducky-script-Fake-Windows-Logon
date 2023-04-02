@@ -1,4 +1,4 @@
-# Ducky-script-Fake-Windows-Logon
+# Ducky-script-Fake-Windows-Login
 This repository contains a Ducky Script that displays a fake Windows login screen to the user. When the user enters their password, the script captures the input and uploads it to Dropbox using the provided Dropbox access token.
 
 ## Demo
